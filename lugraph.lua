@@ -44,7 +44,7 @@ function lugraph.draw(filename,left,right,up,down,scaleX,scaleY, ... )
 	for i=1,up/(5*scaleY) do
 		x = up - i*(5*scaleY)
 		if x<sizeY then
-		for j=1,sizeY do
+		for j=1,sizeX do
 			drawPoint(j,x,10,10,10)
 		end
 	end
@@ -53,7 +53,7 @@ function lugraph.draw(filename,left,right,up,down,scaleX,scaleY, ... )
 	for i=1,down/(5*scaleY) do
 		x = up + i*(5*scaleY)
 		if x>0 then
-		for j=1,sizeY do
+		for j=1,sizeX do
 			drawPoint(j,x,10,10,10)
 		end
 	end
@@ -99,9 +99,9 @@ function lugraph.draw(filename,left,right,up,down,scaleX,scaleY, ... )
 	--end
 
 	--Writing the image
-	for i=1,sizeX do
-		for j=1,sizeY do
-			file:write(string.format("%d %d %d  ",map[i][j][1],map[i][j][2],map[i][j][3]))
+	for j=1,sizeY do
+		for i=1,sizeX do
+			file:write(string.format("%d %d %d  ",map[j][i][1],map[j][i][2],map[j][i][3]))
 		end
 		file:write(string.format("\n"))
 	end

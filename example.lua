@@ -26,4 +26,14 @@ foo8 = function(x)
 	return math.sin(x) * math.exp(x)
 end
 
-lugraph.draw("caca.ppm",64,64,64,64,5,5,foo,foo2,foo3,foo4,foo5,foo6,foo7,foo8)
+foo9 = function(x)
+	local r
+	if x < 0 then 
+		r = x*x 
+	else 
+		r = -x 
+	end
+	return r
+end
+lugraph.draw("test1.ppm",64,64,64,64,5,5,foo,foo2,foo3,foo4,foo5,foo6,foo7,foo8)
+lugraph.draw("test2.ppm",192,192,108,108,10,10,foo,foo9)
