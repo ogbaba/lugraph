@@ -1,4 +1,5 @@
-local lugraph = require "lugraph"
+test = loadfile("lugraph.lua")
+test()
 
 
 foo = function (x)
