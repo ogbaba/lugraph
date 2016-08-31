@@ -21,31 +21,44 @@ function lugraph.draw(filename,left,right,up,down,scaleX,scaleY, ... )
 		map[y][x] = {r,g,b}
 	end
 	--Drawing the shit
-	--Columns
-	for i = 1, (sizeX / 5 + 1)  / scaleX do
-		x = (i*scaleX * 5)  - left%5
-		if x>0 and x<sizeX then
-			for j= 1,sizeY do
-				drawPoint(x,j,10,10,10)
-			end
+	--Quadrillaginos
+	
+	for i=1,left/(5*scaleX) do
+		x = left - i*(5*scaleX)
+		for j=1,sizeY do
+			drawPoint(x,j,10,10,10)
 		end
 	end
-	--Lines
-	for i = 1, (sizeY / 5 + 1) / scaleY do
-		x = (i*scaleY * 5) - up%5
-			if x>0 and x<sizeX then
-				for j=1,sizeX do
-					drawPoint(j,x,10,10,10)
-				end
 	
-			end
+	for i=1,right/(5*scaleX) do
+		x = left + i*(5*scaleX)
+		for j=1,sizeY do
+			drawPoint(x,j,10,10,10)
+		end
 	end
+	
+	for i=1,up/(5*scaleY) do
+		x = up - i*(5*scaleY)
+		for j=1,sizeY do
+			drawPoint(j,x,10,10,10)
+		end
+	end
+	
+	for i=1,down/(5*scaleY) do
+		x = up + i*(5*scaleY)
+		for j=1,sizeY do
+			drawPoint(j,x,10,10,10)
+		end
+	end
+
+	
+	
 	--Axis
 	for i=1,sizeX do
-	drawPoint(down,i,0,0,0)
+	drawPoint(i,down,0,0,0)
 	end
 	for i=1,sizeY do
-	drawPoint(i,left,0,0,0)
+	drawPoint(left,i,0,0,0)
 	end
 	--Function
 	for i,v in ipairs({...}) do
@@ -87,19 +100,9 @@ function lugraph.draw(filename,left,right,up,down,scaleX,scaleY, ... )
 	
 	io.close()
 end
+
 foo = function (x)
 	return x+1
 end
-foo2 = function (x)
-	return x*x
-end
-foo3 = function(x)
-	return x*x*x
-end
-foo4 = function(x)
-	return math.sqrt(x*x)
-end
-foo5 = function(x)
-	return math.sin(x)*5
-end
-lugraph.draw("caca.ppm",100,100,100,100,10,10,foo,foo2,foo3,foo4,foo5)
+
+lugraph.draw("caca.ppm",64,64,64,64,5,10,foo)
