@@ -85,7 +85,7 @@ function lugraph.draw(filename,left,right,up,down,scaleX,scaleY, ... )
 		for x=1,sizeX do
 	
 			y=rxtory(x,v)
-			if y<sizeY and y>0 then
+			if y<sizeY and y>=1 and x<sizeX and y>=1 then
 			drawPoint(x,math.floor(y),r,g,b)
 			print(x,y)
 			end

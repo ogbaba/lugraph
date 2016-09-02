@@ -35,5 +35,9 @@ foo9 = function(x)
 	end
 	return r
 end
+
+foo10 = function(x)
+	return -(x*x)%10 + 10
+end
 lugraph.draw("test1.ppm",64,64,64,64,5,5,foo,foo2,foo3,foo4,foo5,foo6,foo7,foo8)
-lugraph.draw("test2.ppm",192,192,108,108,10,10,foo,foo9)
+lugraph.draw("test2.ppm",1920/2,1920/2,1080/2,1080/2,19,11,foo,foo9,foo10)
